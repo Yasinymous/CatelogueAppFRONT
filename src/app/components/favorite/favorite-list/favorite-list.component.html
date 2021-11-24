@@ -1,0 +1,42 @@
+<div class="w-screen">
+
+    <div class="container mx-auto px-6">
+        <h3 class="text-gray-600 text-2xl font-medium">Products</h3>
+        <div  *ngIf="!load" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+
+          <div
+          class="list-group-item"
+          *ngFor="let favorite of favorites; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveProduct(favorite.product, i)"
+            >
+            <div class="w-full cursor-pointer max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                <div class="flex items-end justify-end h-56 w-full bg-cover" style="background-image: url('https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80')">
+                    <button (click)="addFavItem(favorite.product._id)"  class="shadow p-2 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="px-5 py-2">
+                    <h3 class="text-gray-700 uppercase">{{favorite.product.name}}</h3>
+                    <span class="text-gray-500 mt-2">{{favorite.product.price}}</span>
+                    <a class="badge badge-warning" routerLink="/products/{{ favorite.product.slug }}">
+                      Detail
+                    </a>
+                </div>
+
+               
+            </div>
+            
+          </div>
+        </div>
+        
+        <div *ngIf="load">
+          <img class="mx-auto h-44" src="../../../../assets/loading.svg" alt="loading-svg">
+        </div>
+       
+
+    </div>
+
+</div>

@@ -1,0 +1,37 @@
+
+
+
+<div x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-60 right-0 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5">
+    
+  
+  
+
+  <ul class="space-y-4 dark:text-white max-h-96 overflow-y-auto">
+
+
+      <li *ngFor="let favorite of favorites; let i = index" class="text-md">
+        <a routerLink="/products/{{ favorite.product.slug }}" class="flex flex-row items-start space-x-2 transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+          <div class="w-full">
+            <img class="w-full h-32 object-cover" src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80" alt="">
+          </div>
+          <div class="flex w-full flex-col">
+       
+            <h4 class="">{{favorite.product.name}}</h4>
+            <span class="">{{favorite.product.price}}</span>
+        </div>
+        </a>
+      </li>
+    
+  </ul>
+
+  <div class="pt-4">
+    <a routerLink="/favorites" >
+      <span>view All</span>
+    </a>
+    
+    </div>
+
+  
+
+
+  </div>
